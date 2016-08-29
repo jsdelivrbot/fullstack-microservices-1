@@ -1,0 +1,10 @@
+<paper-material>
+    <template id="entries" is="dom-repeat" items="{{entries}}">
+      <paper-material>
+        <h4> 
+          {{item.service}} {{item.action}} Poked
+        </h4> 
+        <pre secondary>{{item.result}}</pre>
+      </paper-material>
+    </template>
+</paper-material>

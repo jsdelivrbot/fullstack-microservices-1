@@ -1,0 +1,47 @@
+
+base:
+  build: ../services/base/
+  container_name: base
+  env_file: ../system.env
+  net: host
+  restart: always
+
+site:
+  build: ../services/site/
+  container_name: site
+  env_file: ../system.env
+  net: host
+  restart: always
+  ports:
+   - 8000:8000
+  
+activity:
+  build: ../services/activity/
+  container_name: activity
+  env_file: ../system.env
+  net: host
+  restart: always   
+  
+service1:
+  build: ../services/service1/
+  container_name: service1
+  env_file: ../system.env
+  net: host
+  restart: always    
+  
+service2:
+  build: ../services/service2/
+  container_name: service2
+  env_file: ../system.env
+  net: host
+  restart: always
+  
+theme:
+  build: ../services/theme/
+  container_name: theme
+  env_file: ../system.env
+  net: host
+  restart: always  
+
+
+

@@ -1,0 +1,54 @@
+{
+  "name": "site",
+  "description": "my awesome site",
+  "keywords": [
+    "awesome",
+    "site"
+  ],
+  "version": "0.1.1",
+  "main": "./index.js",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "good": "^6.4.0",
+    "good-console": "^5.1.0",
+    "handlebars": "^4.0.3",
+    "hapi": "^10.5.0",
+    "h2o2": "^5.0.0",
+    "inert": "^3.1.0",
+    "vision": "^3.0.0",
+    "seneca": "^2.0.1",
+    "seneca-balance-client": "^0.5.0",
+    "seneca-entity": "1.2.0",
+    "seneca-mesh": "^0.8.0",
+    "boom": "3.x.x",
+    "chairo": "2.1.0",
+    "hapi": "12.0.0",
+    "history": "1.17.x",
+    "in-publish": "2.0.0",
+    "lodash": "3.10.1",
+    "moment": "2.11.x",
+    "style-loader": "0.13.x",
+    "superagent": "1.6.x",
+    "vidi-metrics": "0.1.0",
+    "vidi-seneca-metrics": "0.2.0"       
+  },
+  "repository": {
+    "private": true
+  },
+  "scripts": {
+    "lint": "jshint **/*.js",
+    "test": "jshint **/*.js && tape test/*Test.js",
+    "coverage": "istanbul cover tape test/*Test.js && open ./coverage/lcov-report/index.html",
+    "coverage-check": "istanbul cover tape test/*Test.js && istanbul check-coverage",
+    "commit-check": "jshint **/*.js && istanbul cover tape test/*Test.js && istanbul check-coverage"
+  },
+  "pre-commit": [
+    "commit-check"
+  ],
+  "devDependencies": {
+    "pre-commit": "^1.1.1",
+    "tape": "^4.2.0"
+  }
+}

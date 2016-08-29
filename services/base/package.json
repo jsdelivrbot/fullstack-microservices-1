@@ -1,0 +1,121 @@
+{
+  "_args": [
+    [
+      "nodezoo-base@7.0.x",
+      "/Users/drew.simmons/Projects/research/nodezoo-system"
+    ]
+  ],
+  "_from": "nodezoo-base@>=7.0.0 <7.1.0",
+  "_id": "nodezoo-base@7.0.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/nodezoo-base",
+  "_nodeVersion": "5.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/nodezoo-base-7.0.2.tgz_1462950823534_0.9793847210239619"
+  },
+  "_npmUser": {
+    "email": "mircea.alexandru@gmail.com",
+    "name": "malex"
+  },
+  "_npmVersion": "3.3.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "nodezoo-base",
+    "raw": "nodezoo-base@7.0.x",
+    "rawSpec": "7.0.x",
+    "scope": null,
+    "spec": ">=7.0.0 <7.1.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nodezoo-base/-/nodezoo-base-7.0.2.tgz",
+  "_shasum": "31e6618b2e72a8b3ad973532441829b243996cb4",
+  "_shrinkwrap": null,
+  "_spec": "nodezoo-base@7.0.x",
+  "_where": "/Users/drew.simmons/Projects/research/nodezoo-system",
+  "author": {
+    "name": "Dean McDonnell",
+    "url": "https://github.com/mcdonnelldean"
+  },
+  "bugs": {
+    "url": "https://github.com/nodezoo/nodezoo-base/issues"
+  },
+  "contributors": [
+    {
+      "name": "Jane Quinn",
+      "url": "https://github.com/CodeWriterWriter"
+    },
+    {
+      "name": "Shane Lacey",
+      "url": "https://github.com/shanel262"
+    }
+  ],
+  "dependencies": {
+    "seneca": "2.0.0",
+    "seneca-balance-client": "0.5.x",
+    "seneca-mesh": "0.7.0"
+  },
+  "description": "A mesh base for Nodezoo",
+  "devDependencies": {
+    "code": "2.1.0",
+    "eslint-config-seneca": "1.1.2",
+    "eslint-plugin-hapi": "4.0.0",
+    "eslint-plugin-standard": "1.3.1",
+    "lab": "8.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "31e6618b2e72a8b3ad973532441829b243996cb4",
+    "tarball": "https://registry.npmjs.org/nodezoo-base/-/nodezoo-base-7.0.2.tgz"
+  },
+  "gitHead": "f2f700304459d0e7674858653ab89c40abb4e0fe",
+  "homepage": "https://github.com/nodezoo/nodezoo-stats#readme",
+  "keywords": [
+    "metrics",
+    "microservices",
+    "nodezoo",
+    "seneca",
+    "vidi"
+  ],
+  "license": "MIT",
+  "main": "metrics.js",
+  "maintainers": [
+    {
+      "name": "adrianrossouw",
+      "email": "npm@daemon.co.za"
+    },
+    {
+      "name": "malex",
+      "email": "mircea.alexandru@gmail.com"
+    },
+    {
+      "name": "mcdonnelldean",
+      "email": "mcdonnelldean@outlook.com"
+    },
+    {
+      "name": "naomifeehanmoran",
+      "email": "naomi.feehan.moran@gmail.com"
+    },
+    {
+      "name": "rjrodger",
+      "email": "richard.rodger@nearform.com"
+    }
+  ],
+  "name": "nodezoo-base",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodezoo/nodezoo-base.git"
+  },
+  "scripts": {
+    "lint": "lab test -dL",
+    "start": "node srv/start.js",
+    "test": "lab -v -P test -L -c -t 0"
+  },
+  "version": "7.0.2"
+}
