@@ -34,7 +34,7 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 
 # Hacky stuff (that I can remember)
 
-* Used mesh pin to identify services that have components using client:'web' and client:'web-transports'. This makes the mesh pin differ from the service patterns.
+* Used mesh pin to identify services that have components using client:'web' and client:'web-scaffolding'. This makes the mesh pin differ from the service patterns.
 
 
 
