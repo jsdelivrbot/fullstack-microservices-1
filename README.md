@@ -18,7 +18,7 @@ Stager is responsible for pulling down components that are needed now or may be 
 
 `cmp.backStage({role:'activity',cmd:'entry'},{role:'activity',cmd:'component'})`
 
-We're just telling the app that 'activity:entry' is a valid msg, but its component hasn’t been brought down yet.  Seneca-mesh is great for identifying potential messages the client needs to know about.
+We're just telling the app that 'activity:entry' is a valid msg, but its component hasn’t been brought down yet.  Seneca-mesh is great for identifying **potential** messages the client needs to know about.
 
 Once the component has been pulled in, the msg is removed from Stager and the msg continues on through local and http.
 
@@ -42,8 +42,22 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 
 # Hacky stuff (that I can remember)
 
-* Used mesh pin to identify services that have components using client:'web' and client:'web-scaffolding'. This makes the mesh pin differ from the service patterns.
+* After calling mesh {'get:members'} I'm doing some filtering to get specific patterns. Can mesh be extended with this functionality? 
+* Used mesh pin to identify services that have components with client:'web'. Unfortunately, this makes the mesh pin differ from the service patterns and uses pin for something other than what was intended.
 
+`
+.add({role:'activity',cmd:'entry'})
+`
+vs
+`
+{pin: 'role:activity,cmd:entry,client:web',
+`
+
+# Questions
+
+* This raises the question, what's the best way to identify component target-viewport, version, type (scaffold vs non-scaffold)? 
+* Does {model:consume} ensure just one component will be found for a given pattern?
+* Should component pin include a name for the component?  Require all components to be uniquely named? 
 
 
 # TODO
@@ -54,9 +68,10 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 * Add more test cases
 * Add a repl service like ramanujan
 * Add a component versioning schema
-* Push real-time mesh component additions/changes down to clients
+* Push real-time mesh component additions/changes down to clients (service worker?)
 * Add A/B testing functionality
 * Add functionality to capture site usage metrics
+* Vulcanize for a prod environment
 
 
 # Thoughts
