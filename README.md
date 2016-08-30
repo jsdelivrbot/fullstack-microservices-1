@@ -18,7 +18,7 @@ Add a Stager transport to handle the following scenarios:
 
 I'm thinking of Stager like a stage manager role in a live play.  A responsibility of that role is to get actors into their proper positions before they are to go on stage.
 
-Stager is responsible for pulling down components that are needed now or may be needed in the near future.  Patterns are registered to it, along with the pattern that corresponds to its component.  For example, this would be called if the activity component is not brought down with the initial app load:  
+Stager is responsible for pulling down components that are needed now or may be needed in the near future.  Patterns are registered to it, along with the pattern that corresponds to its component.  For example, this would be called if the activity component is not brought down with the 'scaffolding' components during initial app load:  
 
 `cmp.backStage({role:'activity',cmd:'entry'},{role:'activity',cmd:'component'})`
 
@@ -34,7 +34,7 @@ Here are the changes I made, more or less:
 * Started with Spike 2.1
 * Patterned the repo after Node-zoo using Senenca-mesh
 * Changed the Local transport to act on all pattern matches instead of just one
-* Added the Stager transport to polymer-lucius, called before Local and HTTP transports
+* Added the Stager transport to lucius-polymer, called before Local and HTTP transports
 * Used seneca-mesh to find the messages whose components are not loaded in initial page load
 * Imported relevant mesh service patterns into lucius on initial page load
 * Commented out link import for the activity service
@@ -48,8 +48,8 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 
 * After calling mesh {'get:members'} I'm doing some filtering to get specific patterns. Can mesh be extended with this functionality? 
 * For the api we're kinda locked into this role:cmd pattern at the moment
-* Used response code 204 after stager successfully imports a component. Maybe something else would be better.
 `var url = '/api/'+compPattern.role+'/'+compPattern.cmd`
+* Used response code 204 after stager successfully imports a component. Maybe something else would be better.
 * Used mesh pin to identify services that have components with client:'web'. Unfortunately, this makes the mesh pin differ from the service patterns and uses pin for something other than what was intended.
 
 `
@@ -66,6 +66,7 @@ vs
 * Does {model:consume} ensure just one component will be found for a given pattern?
 * Should component pin include a name for the component?  Require all components to be uniquely named? 
 * Should the build process automatically identify components included in first page load, rather than declaring "client:web-scaffold"?
+* Pattern matching is great on the server.  Does it break down for mu components or make it that much better?
 
 
 # TODO (maybe)
@@ -87,7 +88,7 @@ vs
 # To Fix
 
 * Components should be pulled from cache on reload
-
+* On page load sometimes the UI is positioned all the way to the left. Work-around: reload until it's centered
 
 
 # Thoughts

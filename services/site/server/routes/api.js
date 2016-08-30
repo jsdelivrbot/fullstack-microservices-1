@@ -13,15 +13,18 @@ module.exports = [
       request.seneca.act(pattern, function (err, data) {
         if (err) return reply(Boom.internal(err))
         var compIdMap = {}
+        var msgMap = {}
         var comps = []
 				//we just want messages that have components for client==web and aren't brought down with initial page load.
  				data.list.filter(function (ele){
 						var obj = jsonic(ele.pin)
 						var id = ele.instance
 						if (obj.client === 'web' && obj.cmd === 'component' && !compIdMap[id]) { 
-							compIdMap[id] = obj 
+							compIdMap[id] = obj
 						}
-						return (obj.client === 'web' && obj.cmd !== 'component')
+						var include = (obj.client === 'web' && obj.cmd !== 'component' && !msgMap[ele.pin])
+						msgMap[ele.pin] = true //for deduping msg's when +1 instances are running.
+						return include
 				})
 				.forEach(function (ele){
 						console.log(ele.pin)
