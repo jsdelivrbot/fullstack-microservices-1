@@ -63,12 +63,12 @@ If the comp is proactively loaded, the layout itself decides if and where the co
 
 # Run
 
-> clone or fork this repo
-> npm install fuge --global
-> fuge build fuge/compose-dev.yml
-> fuge shell fuge/compose-dev.yml
-fuge> start
-http://localhost:8000/
+* clone or fork this repo
+* npm install fuge --global
+* fuge build fuge/compose-dev.yml
+* fuge shell fuge/compose-dev.yml
+* fuge> start
+* http://localhost:8000/
 
 When a service action button is clicked, the activity component will be downloaded and then immediately used.
 
