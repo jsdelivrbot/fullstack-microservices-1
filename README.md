@@ -1,4 +1,4 @@
-This repo is based heavily on [this very awesome repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.
+This repo is based heavily on [this very awesome repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.  Normally I would have forked his repo but between the branches and the changes I made, I didn't know how a fork would turn out.
 
 Feel free to discuss ideas by opening an Issue.
 
