@@ -25,7 +25,6 @@ function lucius(opts) {
     return this
   }
   
-  //backStage({role: 'activity', cmd: 'entry'}, {role: 'activity', cmd: 'component'})
   function backStage(pattern, compPattern) {
   	transports[0].backStage(pattern, compPattern)
   }
@@ -50,7 +49,6 @@ function lucius(opts) {
       }
       transports[t](args, function (err, res) {
         if ((err && err.code >= 400) || (res && res.code === 204)) {
-        	(res && res.code === 204) && console.log('returning from getting component',t)
           err && errs.push(err)
           t += 1
           enact()
@@ -64,7 +62,6 @@ function lucius(opts) {
   }
 
   function use (t) {
-  	//need to allow inserting this into any position with default at the end.
     if (!(t instanceof Function)) {
       throw Error('transport must be a function')
     }
@@ -2945,21 +2942,15 @@ var p2rx = require('path-to-regexp')
 
 var api = '/api/:role/:cmd'
 
-module.exports = function (opts) {	
+module.exports = function (opts) {
   var remote = 'api' in opts ? opts.api : api
   if (!remote) { return }
   remote = remote && p2rx.compile(remote)
   return function act(args, cb) {
-  	console.log('http act({'+args.role+':'+args.cmd+'})')
     var get = args.$get || opts.get
     if (args.$post) { get = false }
-    reqOpts = get ? {json: true} : {method: 'POST', json: true, body: args}
-//     if (args.$comp) {
-//     	reqOpts.json = false
-//     	reqOpts.responseType = 'text'
-//     }
     request(remote(args), 
-      reqOpts,
+      get ? {json: true} : {method: 'POST', json: true, body: args},
       function (err, data, res) {
         if (err) { 
           cb && cb(err) 
@@ -2994,32 +2985,6 @@ module.exports = function (opts) {
   function add(pattern, fn) {
     bloom.add(pattern, fn)
   }
-
-/* 
-  function act(args, cb) {
-  	console.log('local act({'+args.role+':'+args.cmd+'})')
-    var match = bloom.list(args).pop()
-    var err
-    if (!match) {
-      err = Error('no matching pattern')
-      err.code = 404
-      cb && cb(err)
-      return
-    }
-
-    if (!(match instanceof Function)) {      
-      err = Error('no matching pattern')
-      err.code = 400
-      cb && cb(err)
-      return 
-    }
-    match(args, cb || function (err) {
-      if (err) { 
-        console.error('Lucius error: ', err) 
-      }
-    })
-  }
- */
  
   function act(args, cb) {
   	console.log('local act({'+args.role+':'+args.cmd+'})')
@@ -3051,14 +3016,6 @@ module.exports = function (opts) {
 },{"bloomrun":3}],82:[function(require,module,exports){
 var bloomrun = require('bloomrun')
 var bloom = bloomrun()
-//var http = require('../http')({get: true})
-
-/*	
-	xTEST 1: activity comp is mia when {activity:entry} is fired.
-	TEST 2: activity comp is local but not on page when {activity:entry} is fired.
-	TEST 3: activity comp is local and on page but activity2 is mia when {activity:entry} is fired.
-		 
-*/
     	
 module.exports = function (opts) {
   if (!opts.stager) { return }
@@ -3072,7 +3029,6 @@ module.exports = function (opts) {
 		act.remove(pattern, compPattern)
 		var url = '/api/'+compPattern.role+'/'+compPattern.cmd
 		Polymer.Base.importHref(url, () => {				
-				//if (standBy) { return }
 				cb && cb(null,{code:204}) //stager was successful; carry on with next transport.
 				return					
 			}, () => {				
@@ -3086,7 +3042,7 @@ module.exports = function (opts) {
   }
 
   function backStage(pattern, compPattern) {
-  	//register a pattern-in-waiting 	
+  	//tell this pattern to wait back stage until its component is needed.	
     bloom.add(pattern, JSON.stringify({pattern:pattern, compPattern:compPattern}))
   }
   
@@ -3097,7 +3053,6 @@ module.exports = function (opts) {
   function act(args, cb) {
     var matches = bloom.list(args)
     var err
-    //console.log('stager matches',matches);
     if (matches.length === 0) {
       err = Error('no matching pattern')
       err.code = 404

@@ -74,7 +74,12 @@ module.exports = [
 				}
 				reply(req.params.cmd === 'component' ? res.html : res);
 			});
-		}
+		},
+    config: {
+        cache: {
+            expiresIn: 315360000
+        }
+    }
 	}
 	 
 ]

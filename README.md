@@ -47,6 +47,9 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 # Hacky stuff (that I can remember)
 
 * After calling mesh {'get:members'} I'm doing some filtering to get specific patterns. Can mesh be extended with this functionality? 
+* For the api we're kinda locked into this role:cmd pattern at the moment
+* Used response code 204 after stager successfully imports a component. Maybe something else would be better.
+`var url = '/api/'+compPattern.role+'/'+compPattern.cmd`
 * Used mesh pin to identify services that have components with client:'web'. Unfortunately, this makes the mesh pin differ from the service patterns and uses pin for something other than what was intended.
 
 `
