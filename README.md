@@ -78,8 +78,14 @@ vs
 * Add functionality to capture site usage metrics
 * Vulcanize for a prod environment
 * Explore other transports for stager (streams, etc)
-* Fix the build warnings
+* Fix the build (npm install) warnings
 * Update node version to latest from 4.0.0
+
+# To Fix
+
+* Components should be pulled from cache on reload
+
+
 
 # Thoughts
 
@@ -97,8 +103,9 @@ If the comp is proactively loaded, the layout itself decides if and where the co
 # Run
 
 * nvm use 4.0.0
-* clone or fork this repo
 * npm install fuge --global
+* clone or fork this repo
+* cd [this repo]
 * fuge build fuge/compose-dev.yml
 * fuge shell fuge/compose-dev.yml
 * fuge> start
