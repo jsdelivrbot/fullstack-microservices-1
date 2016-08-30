@@ -1,5 +1,6 @@
 Based on [this very cool repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.
 
+
 # Reason for changes
 
 {msg} -> Stager -> Local -> Http
@@ -41,9 +42,10 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 # TODO
 
 * Needs to be put in a web worker
-* Implement a 'standby' functionality to bring components down before they are needed
+* Implement a 'standby' functionality to explicitly bring components down before they are needed
 * Figure out how to bring down multiple (related) components with one message
 * Add more test cases
+* Add a repl service like ramanujan
 
 
 # Thoughts
@@ -53,12 +55,22 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 If the comp is proactively loaded, the layout itself decides if and where the component is loaded. If the activity component is loaded before it's needed, you'll need to add something like:
 
 `
- 				var dynamicEl = document.createElement("activity-cmp");
-   			document.body.appendChild(dynamicEl);
+ 	var dynamicEl = document.createElement("activity-cmp");
+  document.body.appendChild(dynamicEl);
 `
 ...to the document before 'activity:entry' msg is sent.
 
 
+# Run
+
+> clone or fork this repo
+> npm install fuge --global
+> fuge build fuge/compose-dev.yml
+> fuge shell fuge/compose-dev.yml
+fuge> start
+http://localhost:8000/
+
+When a service action button is clicked, the activity component will be downloaded and then immediately used.
 
 
 ----------

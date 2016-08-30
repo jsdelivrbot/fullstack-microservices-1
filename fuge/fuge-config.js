@@ -43,7 +43,7 @@ module.exports = {
 
     site: {
       run: 'node server/start.js',
-      build: 'npm install; npm run build'
+      build: 'npm install'
     },  
     activity: {
       run: 'node service.js',
