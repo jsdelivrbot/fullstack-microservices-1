@@ -1,5 +1,6 @@
 Based on [this very cool repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.
 
+Please help me improve this.
 
 # Reason for changes
 
@@ -9,7 +10,7 @@ I'm thinking of Stager like a stage manager role in a live play.  A responsibili
 
 Stager is responsible for pulling down components that are needed now or may be needed in the near future.  Patterns are registered to it, along with the pattern that corresponds to its component.  For example, this would be called if the activity component is not brought down with the initial app load:  
 
-`stager.add({role:'activity',cmd:'entry'},{role:'activity',cmd:'component'})`
+`stager.backStage({role:'activity',cmd:'entry'},{role:'activity',cmd:'component'})`
 
 We're just telling the app that 'activity:entry' is a valid msg, but its component hasn’t been brought down yet.  Seneca-mesh is great for identifying potential messages the client needs to know about.
 
