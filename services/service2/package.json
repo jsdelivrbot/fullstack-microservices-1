@@ -12,7 +12,7 @@
     "node": "*"
   },
   "dependencies": {
-    "seneca": "^2.0.1",
+    "seneca": "^2.1.0",
     "seneca-balance-client": "^0.5.0",
     "seneca-mesh": "^0.8.0" 
   },

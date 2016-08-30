@@ -78,6 +78,7 @@ vs
 * Add functionality to capture site usage metrics
 * Vulcanize for a prod environment
 * Explore other transports for stager (streams, etc)
+* Fix the build warnings
 
 
 # Thoughts
