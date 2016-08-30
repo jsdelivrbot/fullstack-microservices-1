@@ -36,8 +36,8 @@ Here are the changes I made, more or less:
 * Commented out link import for the activity service
 
 We end up with the pattern 'activity:entry' with no activity component on the page. When
-'service1:action1' returns and runs act() on 'activity:entry', stager sends the
-'activity:component' message and imports it.  Then 'activity:entry' is allowed to continue, hitting the local transport.
+'service1:action1' returns and sends the msg act('activity:entry',fn), stager first sends the
+'activity:component' message to import the activity component.  Then 'activity:entry' is allowed to continue, hitting the local transport.
 
 
 # Hacky stuff (that I can remember)
