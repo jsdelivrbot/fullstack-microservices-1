@@ -1,8 +1,14 @@
 Based on [this very cool repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.
 
-Please help me improve this.
+Feel free to discuss ideas by opening an Issue.
 
 # Reason for changes
+
+Would like to handle the following scenarios:
+
+* Lazy-load components when they are needed
+* Proactively load components (just) before they are needed
+* Possibly other things listed in the TODO section
 
 {msg} -> Stager -> Local -> Http
 
@@ -10,7 +16,7 @@ I'm thinking of Stager like a stage manager role in a live play.  A responsibili
 
 Stager is responsible for pulling down components that are needed now or may be needed in the near future.  Patterns are registered to it, along with the pattern that corresponds to its component.  For example, this would be called if the activity component is not brought down with the initial app load:  
 
-`stager.backStage({role:'activity',cmd:'entry'},{role:'activity',cmd:'component'})`
+`cmp.backStage({role:'activity',cmd:'entry'},{role:'activity',cmd:'component'})`
 
 We're just telling the app that 'activity:entry' is a valid msg, but its component hasn’t been brought down yet.  Seneca-mesh is great for identifying potential messages the client needs to know about.
 
@@ -47,6 +53,10 @@ We end up with the pattern 'activity:entry' with no activity component on the pa
 * Figure out how to bring down multiple (related) components with one message
 * Add more test cases
 * Add a repl service like ramanujan
+* Add a component versioning schema
+* Push real-time mesh component additions/changes down to clients
+* Add A/B testing functionality
+* Add functionality to capture site usage metrics
 
 
 # Thoughts
