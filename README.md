@@ -79,7 +79,7 @@ vs
 * Vulcanize for a prod environment
 * Explore other transports for stager (streams, etc)
 * Fix the build warnings
-
+* Update node version to latest from 4.0.0
 
 # Thoughts
 
@@ -96,6 +96,7 @@ If the comp is proactively loaded, the layout itself decides if and where the co
 
 # Run
 
+* nvm use 4.0.0
 * clone or fork this repo
 * npm install fuge --global
 * fuge build fuge/compose-dev.yml

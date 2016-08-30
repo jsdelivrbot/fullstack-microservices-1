@@ -35,12 +35,6 @@ module.exports = {
       run: 'node srv/start.js',
       build: 'npm install'
     },
-    
-//     front: {
-//       run: 'node server/start.js',
-//       build: 'npm install; npm run build'
-//     },  
-
     site: {
       run: 'node server/start.js',
       build: 'npm install'
