@@ -10,11 +10,11 @@ module.exports = function (options) {
 	});
 
 	seneca.add({role: 'service2', cmd: 'action1'}, function(args, callback) {
-		callback(null, {data: 'data'});
+		callback(null, {data: 's2-a1'});
 	});
 
 	seneca.add({role: 'service2', cmd: 'action2'}, function(args, callback) {
-		callback(null, {data: 'data'});
+		callback(null, {data: 's2-a2'});
 	});
 
   return {
