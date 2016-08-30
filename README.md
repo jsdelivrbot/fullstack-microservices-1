@@ -1,4 +1,4 @@
-Based on [this very cool repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.
+This repo is based heavily on [this very awesome repo](https://github.com/apparatus/fullstack-microservices) by @davidmarkclements.
 
 Feel free to discuss ideas by opening an Issue.
 
@@ -8,7 +8,7 @@ This repo combines [Polymer](https://www.polymer-project.org/1.0/) and the [Sene
 
 # Reason for changes
 
-Would like to handle the following scenarios:
+Add a Stager transport to handle the following scenarios:
 
 * Lazy-load components when they are needed
 * Proactively load components (just) before they are needed
