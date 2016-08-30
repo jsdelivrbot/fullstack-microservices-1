@@ -55,9 +55,10 @@ vs
 
 # Questions
 
-* This raises the question, what's the best way to identify component target-viewport, version, type (scaffold vs non-scaffold)? 
+* This raises the question, what's the best way to identify component meta data such as target-viewport, version, type (scaffold vs non-scaffold), etc? 
 * Does {model:consume} ensure just one component will be found for a given pattern?
 * Should component pin include a name for the component?  Require all components to be uniquely named? 
+* Should the build process automatically identify components included in first page load, rather than declaring "client:web-scaffold"?
 
 
 # TODO
