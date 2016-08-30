@@ -2,6 +2,10 @@ Based on [this very cool repo](https://github.com/apparatus/fullstack-microservi
 
 Feel free to discuss ideas by opening an Issue.
 
+# What is this?
+
+This repo combines [Polymer](https://www.polymer-project.org/1.0/) and the [Seneca](http://senecajs.org/) pattern matching engine.  The goal is to develop a system whereby microservices are used throughout, both client and server.
+
 # Reason for changes
 
 Would like to handle the following scenarios:
@@ -61,7 +65,7 @@ vs
 * Should the build process automatically identify components included in first page load, rather than declaring "client:web-scaffold"?
 
 
-# TODO
+# TODO (maybe)
 
 * Needs to be put in a web worker
 * Implement a 'standby' functionality to explicitly bring components down before they are needed
@@ -73,6 +77,7 @@ vs
 * Add A/B testing functionality
 * Add functionality to capture site usage metrics
 * Vulcanize for a prod environment
+* Explore other transports for stager (streams, etc)
 
 
 # Thoughts
