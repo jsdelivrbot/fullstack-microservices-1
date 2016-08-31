@@ -2,6 +2,9 @@ This repo is based heavily on [this very awesome repo](https://github.com/appara
 
 Feel free to discuss ideas by opening an Issue.
 
+
+![Screen shot](/screenshot.png)
+
 # What is this?
 
 This repo combines [Polymer](https://www.polymer-project.org/1.0/) and the [Seneca](http://senecajs.org/) pattern matching engine.  The goal is to develop a system whereby microservices are used throughout, both client and server.
