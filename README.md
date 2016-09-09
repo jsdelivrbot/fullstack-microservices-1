@@ -70,6 +70,7 @@ vs
 * Should component pin include a name for the component?  Require all components to be uniquely named? 
 * Should the build process automatically identify components included in first page load, rather than declaring "client:web-scaffold"?
 * Pattern matching is great on the server.  Does it break down for mu components or make it that much better?
+* What's the best way for component services to pull in dependent components? 
 
 
 # TODO (maybe)
